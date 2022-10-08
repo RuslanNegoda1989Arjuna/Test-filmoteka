@@ -29,12 +29,12 @@ function render(data) {
   //debugger;
 
   const genres = getDataFromLocalStorage('genres');
-  console.log(...genres);
-  const idGeneres = genres.map(name => {
-    console.log(name.id);
-    return name.name;
-  });
-  console.log(idGeneres);
+  // console.log(...genres);
+  // const idGeneres = genres.map(name => {
+  //   console.log(name.id);
+  //   return name.name;
+  // });
+  // console.log(idGeneres);
 
   // _________________!!!!!
 
@@ -81,25 +81,27 @@ getPopularFilms();
 //  _________________________________
 // фетч жанрів
 
-//   fetchGenres() {
-//     const url = `${BASE_URL}/genre/movie/list?api_key=${KEY}`;
-//     return fetch(url)
-//       .then(response => response.json())
-//       .then(data => {
-//         return data.genres;
-//       });
-// }
+function fetchGenres() {
+  const url = URL_GENRES;
+  return fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      return data.genres;
+    });
+}
+console.log(fetchGenres());
 
-// insertGenresToMovieObj() {
-//     return this.fetchPopularArticles().then(data => {
-//       return this.fetchGenres().then(genresList => {
-//         return data.map(movie => ({
-//           ...movie,
-//           release_date: movie.release_date.split('-')[0],
-//           genres: movie.genre_ids
-//             .map(id => genresList.filter(el => el.id === id))
-//             .flat(),
-//         }));
-//       });
+// function insertGenresToMovieObj() {
+//   return this.fetchPopularArticles().then(data => {
+//     return this.fetchGenres().then(genresList => {
+//       return data.map(movie => ({
+//         ...movie,
+//         release_date: movie.release_date.split('-')[0],
+//         genres: movie.genre_ids
+//           .map(id => genresList.filter(el => el.id === id))
+//           .flat(),
+//       }));
 //     });
+//   });
 // }
+// console.log(insertGenresToMovieObj());
