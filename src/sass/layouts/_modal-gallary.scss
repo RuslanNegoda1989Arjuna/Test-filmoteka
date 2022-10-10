@@ -171,17 +171,24 @@
   height: 48px;
   padding: 0;
   margin: 0;
-  // border: none;
+  border: none;
   border-radius: 50%;
   background-color: transparent;
   color: rgb(12, 9, 9);
   cursor: pointer;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   outline: none;
-  // background-image: url('../images/close-modal.svg');
+  // background-image: url('./icons8-close.svg');
   background-position: center;
   background-size: 60%;
   background-repeat: no-repeat;
+  &:hover,
+  &:focus {
+    // background-color: #ff6b08;
+    // color: #ffffff;
+    border: 1px solid #ff6b08;
+    font-size: 30px;
+  }
 }
 
 .company {

@@ -21,17 +21,35 @@ function onOpenModal(evt) {
   const movie_id = evt.target.dataset.id;
 
   fetchOneMovieInfo(movie_id).then(data => {
-    console.log(data);
+    console.log(data.id);
     murckupCard(data);
 
     // додаємо слухача на кнопку закриття
 
     const btnModalClos = document.querySelector('.close__button__modal');
     btnModalClos.addEventListener('click', () => onCloseBtn());
+
+    // button watch
+    //
   });
 
   modalEl.classList.add('is-open');
 }
+
+// const btnWatchEl = document.querySelector('btn__watch');
+// const btnQueueEl = document.querySelector('btn__queue');
+// console.log(btnWatchEl);
+
+// btnWatchEl.addEventListener('click', onLibraruWatch);
+// btnQueueEl.addEventListener('click', onLibraruQueue);
+
+// function onLibraruWatch(e) {
+//   console.log(e.target);
+// }
+
+// function onLibraruQueue(e) {
+//   console.log(e.target.dataset.id);
+// }
 
 // Ф-ція закриття модалки
 function onCloseBtn() {
@@ -86,19 +104,18 @@ function murckupCard(data) {
         </p>
       </div>
       <div class='film__button__wrapper'>
-        <button type='button' class='film__button btn__watch' data-id=''>Add
+        <button type='button' class='film__button btn__watch' data-id='${data.id}'>Add
           to watched</button>
-        <button type='button' class='film__button btn__queue' data-id=''>Add
+        <button type='button' class='film__button btn__queue' data-id='${data.id}'>Add
           to queue</button>
       </div>
       <button
         type='button'
         class='close__button__modal'
         data-action='close-modal'
-      >X</button>
+      >X
+      </button>
     </div>
   </div>
   `);
-  // const btnModalClos = document.querySelector('.close__button__modal');
-  // btnModalClos.addEventListener('click', () => onCloseBtn());
 }
